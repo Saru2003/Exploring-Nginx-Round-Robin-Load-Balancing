@@ -1,6 +1,5 @@
 # Nginx Round-Robin Load Balancing: Explorations and Implementation
 Welcome to the Nginx Round-Robin Load Balancing repository! This project aims to provide a comprehensive exploration of Nginx, a powerful and widely-used web server and reverse proxy server, focusing specifically on its round-robin load balancing capabilities.
-![Screenshot_20230702_190440](https://github.com/Saru2003/Exploring-Nginx-Round-Robin-Load-Balancing/assets/94345639/062d8b21-c0d1-4567-8344-1497d3ea7f90)
 
 ## Overview
 This project provides a comprehensive exploration of Nginx, a powerful web server and reverse proxy server, with a focus on implementing round-robin load balancing. The repository covers various aspects of Nginx, including 
@@ -27,6 +26,8 @@ This snippet associates the `.css` extension with the MIME type `text/css` and t
 
  By including `include mime.types;` in your server section, you can utilize all the predefined MIME types without explicitly defining them. 
 
+ <img src="images/Screenshot_20230702_185725.png">
+
  ## Serving Different Content Using Location Context
 
 When configuring Nginx to serve different content based on specific URLs, you can utilize the location context in the `nginx.conf` file. Here are some examples:
@@ -34,9 +35,13 @@ When configuring Nginx to serve different content based on specific URLs, you ca
 
 To serve the `index.html` file located in a separate directory, such as `/fruits`, you can define a new location `/fruits` within the server section. Set the `root` directive to the appropriate directory path. When accessing `localhost/fruits`, the content of `index.html` under `/fruits` will be displayed.
 
+<img src="images/Screenshot_20230702_185805.png">
+
 2. Alias for serving the same content under a different URL:
 
 If you want to display the same content of `index.html` under another URL, such as `localhost/carbs`, you can use the `alias` directive within the `/carbs` location block. This allows you to serve the content from the original location while displaying it under a different URL.
+
+<img src="images/Screenshot_20230702_185823.png">
 
 3. Serving a specific HTML file from a different folder without an index.html:
 
@@ -45,6 +50,9 @@ In cases where you want to serve a specific HTML file from a different folder th
 bash/veggies/veg.html /index.html =404`
 ```
  to attempt serving `veg.html` and then fallback to `index.html` if it doesn't exist.
+
+<img src="images/Screenshot_20230702_185913.png">
+
 
  Remember to make these configurations within the appropriate `location` blocks in the `nginx.conf` file and restart the Nginx service for the changes to take effect, using the command:
  ```bash
@@ -75,6 +83,9 @@ rewrite ^/crop /veggies;
 ```
 This configuration will rewrite the incoming URL `/crops` to `/veggies` internally, without issuing a redirect. As a result, the contents of `/veggies` will be served, but the URL in the browser will still display `/crops`.
 
+<img src="images/Screenshot_20230702_185930.png">
+
+
 ## Configuring NGINX as a Load Balancer with Docker Servers
 In this setup, NGINX is configured as a `load balancer` to distribute incoming requests across multiple Docker servers. The Docker servers are running a JavaScript application and have their ports exposed. Here's a summary of the configuration steps:
 1. Pull the NGINX Docker image using the command 
@@ -87,6 +98,8 @@ docker pull sarvesh20123/nginx_server
  docker run -p <host_port>:7777 -d nginx_server
 ```
  This command starts the Docker servers and maps their exposed port (7777) to the specified `<host_port>`.
+ 
+ <img src="images/Screenshot_20230702_190023.png">
 
  3. Open the NGINX configuration file located at /`etc/nginx/nginx.conf` and configure the load balancing settings.
 
@@ -95,6 +108,9 @@ docker pull sarvesh20123/nginx_server
 5. In the server block, configure the virtual host for load balancing. Use the `location /` context and add the `proxy_pass` directive with the name of the upstream block (`backend`). This directive ensures that incoming requests are proxied to the Docker servers specified in the upstream block.
 
 6. Save the NGINX configuration file and restart NGINX to apply the changes.
+
+   <img src="images/Screenshot_20230702_190230.png">
+
 
 If you want to set up the Docker servers and the JavaScript application by yourself, follow these additional steps:
 
