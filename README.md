@@ -95,4 +95,24 @@ docker pull sarvesh20123/nginx_server
 
 6. Save the NGINX configuration file and restart NGINX to apply the changes.
 
-By following these steps, NGINX is effectively configured as a load balancer, distributing incoming requests across multiple Docker servers running the JavaScript application. The load balancing mechanism ensures improved performance and scalability for handling higher traffic loads.
+If you want to set up the Docker servers and the JavaScript application by yourself, follow these additional steps:
+
+1. Create a new folder and navigate to it.
+
+2. Initialize a new npm project by running `npm init -y` in the terminal.
+
+3. Create an `index.js` file in the project folder and add the necessary logic for your JavaScript application.
+4. In the `package.json` file, locate the `scripts` section and change the __start__ command to `node index`. This sets the start command to run the index.js file when using `npm run start`.
+5. Test your JavaScript application by running `npm run start` in the terminal.
+6. In the same location where the `index.js` file is located, create a Docker image by running
+   ```bash
+   docker build -t <image_name> .
+   ```
+   Replace `<image_name>` with the desired name for your Docker image.
+7. Follow the previously mentioned steps to configure NGINX as a load balancer, substituting `<image_name>` with the name of the Docker image you created.
+
+By following these steps, you can set up the Docker servers running your JavaScript application and configure NGINX as a load balancer to distribute traffic effectively. This provides scalability and improved performance for your application.
+
+## License
+
+This project is licensed under the GNU General Public License. See the [LICENSE](https://github.com/Saru2003/Exploring-Nginx-Round-Robin-Load-Balancing/blob/main/LICENSE) file for details.
