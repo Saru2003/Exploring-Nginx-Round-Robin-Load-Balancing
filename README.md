@@ -1,5 +1,6 @@
 # Nginx Round-Robin Load Balancing: Explorations and Implementation
 Welcome to the Nginx Round-Robin Load Balancing repository! This project aims to provide a comprehensive exploration of Nginx, a powerful and widely-used web server and reverse proxy server, focusing specifically on its round-robin load balancing capabilities.
+![Screenshot_20230702_190440](https://github.com/Saru2003/Exploring-Nginx-Round-Robin-Load-Balancing/assets/94345639/062d8b21-c0d1-4567-8344-1497d3ea7f90)
 
 ## Overview
 This project provides a comprehensive exploration of Nginx, a powerful web server and reverse proxy server, with a focus on implementing round-robin load balancing. The repository covers various aspects of Nginx, including 
@@ -96,6 +97,8 @@ docker pull sarvesh20123/nginx_server
 6. Save the NGINX configuration file and restart NGINX to apply the changes.
 
 If you want to set up the Docker servers and the JavaScript application by yourself, follow these additional steps:
+
+<img src="images/Screenshot_20230702_190440.png">
 
 1. Create a new folder and navigate to it.
 
