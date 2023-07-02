@@ -7,7 +7,8 @@ This project provides a comprehensive exploration of Nginx, a powerful web serve
 - configuring mime types, 
 - utilizing the location context, 
 - performing rewrites and redirects, 
-- and leveraging Nginx as a load balancer. 
+- and leveraging Nginx as a load balancer.
+  
 Each topic is accompanied by detailed explanations, code examples, and step-by-step instructions to help you understand and implement Nginx's round-robin load balancing capabilities. Whether you're new to Nginx or seeking to enhance your knowledge, this repository aims to provide valuable insights and practical guidance for optimizing web server performance.
 
 ## Serving Static Content and Configuring MIME types
